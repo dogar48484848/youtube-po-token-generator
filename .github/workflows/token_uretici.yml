@@ -1,3 +1,18 @@
+Aldığın hata (Exit code 2), benim verdiğim koddaki küçük bir dosya ismi hatasından kaynaklanıyor. Kodun içinde python main.py yazmıştık ama indirilen dosyanın asıl adı potoken-generator.py imiş.
+
+Bunu düzeltmek için o "token_uretici.yml" dosyasını güncellememiz yeterli.
+
+1. Dosyayı Düzenle
+GitHub'da Code sekmesine gel.
+
+.github/workflows/token_uretici.yml dosyasını bul ve tıkla.
+
+Sağ üstteki kalem simgesine (✏️) basarak düzenleme modunu aç.
+
+2. Kodları Değiştir
+İçindeki kodları sil ve aşağıdaki DÜZELTİLMİŞ halini yapıştır. (Dosya ismini düzelttim ve --oneshot komutunu ekledim).
+
+YAML
 name: PO Token Uretici (Manuel)
 on: workflow_dispatch
 
@@ -20,4 +35,4 @@ jobs:
           git clone https://github.com/IV-ORG/youtube-trusted-session-generator.git temp_generator
           cd temp_generator
           pip install -r requirements.txt
-          python main.py
+          python potoken-generator.py --oneshot
